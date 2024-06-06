@@ -354,10 +354,7 @@ namespace ProyectoFinal
 
             string filePath = dialog.FileName;
 
-            XmlWriterSettings settings = new XmlWriterSettings();
-            settings.Indent = true; 
-
-            using (XmlWriter writer = XmlWriter.Create(filePath, settings))
+            using (XmlWriter writer = XmlWriter.Create(filePath))
             {
                 writer.WriteStartElement("Tickets");
 
@@ -373,8 +370,7 @@ namespace ProyectoFinal
             }
 
             MessageBox.Show("XML file exported successfully :D");
-            
-
+           
         }
 
 
