@@ -244,14 +244,12 @@
             // btnWord
             // 
             btnWord.Font = new Font("NSimSun", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnWord.IconChar = FontAwesome.Sharp.IconChar.FileWord;
+            btnWord.IconChar = FontAwesome.Sharp.IconChar.None;
             btnWord.IconColor = Color.Black;
             btnWord.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnWord.IconSize = 30;
-            btnWord.ImageAlign = ContentAlignment.MiddleLeft;
             btnWord.Location = new Point(729, 295);
             btnWord.Name = "btnWord";
-            btnWord.Size = new Size(95, 47);
+            btnWord.Size = new Size(95, 23);
             btnWord.TabIndex = 10;
             btnWord.Text = "Word";
             btnWord.UseVisualStyleBackColor = true;
@@ -260,11 +258,10 @@
             // btnExcel
             // 
             btnExcel.Font = new Font("NSimSun", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnExcel.IconChar = FontAwesome.Sharp.IconChar.FileExcel;
+            btnExcel.IconChar = FontAwesome.Sharp.IconChar.None;
             btnExcel.IconColor = Color.Black;
             btnExcel.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnExcel.IconSize = 30;
-            btnExcel.Location = new Point(729, 377);
+            btnExcel.Location = new Point(729, 321);
             btnExcel.Name = "btnExcel";
             btnExcel.Size = new Size(95, 23);
             btnExcel.TabIndex = 11;
@@ -292,7 +289,7 @@
             btnXml.IconChar = FontAwesome.Sharp.IconChar.None;
             btnXml.IconColor = Color.Black;
             btnXml.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnXml.Location = new Point(729, 406);
+            btnXml.Location = new Point(729, 350);
             btnXml.Name = "btnXml";
             btnXml.Size = new Size(95, 23);
             btnXml.TabIndex = 13;

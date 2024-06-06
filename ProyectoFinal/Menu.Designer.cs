@@ -33,7 +33,11 @@
             R = new Label();
             btnExit = new FontAwesome.Sharp.IconButton();
             pictureBox1 = new PictureBox();
+            label1 = new Label();
+            label2 = new Label();
+            groupBox1 = new GroupBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            groupBox1.SuspendLayout();
             SuspendLayout();
             // 
             // btnFrmBook
@@ -44,7 +48,7 @@
             btnFrmBook.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnFrmBook.IconSize = 29;
             btnFrmBook.ImageAlign = ContentAlignment.MiddleLeft;
-            btnFrmBook.Location = new Point(207, 184);
+            btnFrmBook.Location = new Point(151, 216);
             btnFrmBook.Name = "btnFrmBook";
             btnFrmBook.Size = new Size(173, 34);
             btnFrmBook.TabIndex = 2;
@@ -60,7 +64,7 @@
             btnFrmComputer.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnFrmComputer.IconSize = 36;
             btnFrmComputer.ImageAlign = ContentAlignment.MiddleLeft;
-            btnFrmComputer.Location = new Point(207, 224);
+            btnFrmComputer.Location = new Point(151, 256);
             btnFrmComputer.Name = "btnFrmComputer";
             btnFrmComputer.Size = new Size(173, 34);
             btnFrmComputer.TabIndex = 3;
@@ -72,11 +76,10 @@
             // 
             R.AutoSize = true;
             R.Font = new Font("NSimSun", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            R.Location = new Point(256, 152);
+            R.Location = new Point(200, 192);
             R.Name = "R";
-            R.Size = new Size(71, 16);
+            R.Size = new Size(0, 16);
             R.TabIndex = 4;
-            R.Text = "REGISTER";
             // 
             // btnExit
             // 
@@ -84,7 +87,7 @@
             btnExit.IconChar = FontAwesome.Sharp.IconChar.None;
             btnExit.IconColor = Color.Black;
             btnExit.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnExit.Location = new Point(207, 264);
+            btnExit.Location = new Point(151, 296);
             btnExit.Name = "btnExit";
             btnExit.Size = new Size(173, 34);
             btnExit.TabIndex = 5;
@@ -95,29 +98,66 @@
             // pictureBox1
             // 
             pictureBox1.Image = Properties.Resources.Gardenpngg;
-            pictureBox1.Location = new Point(195, -21);
+            pictureBox1.Location = new Point(155, 22);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(185, 189);
+            pictureBox1.Size = new Size(169, 167);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 6;
             pictureBox1.TabStop = false;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Perpetua Titling MT", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.ForeColor = SystemColors.ButtonFace;
+            label1.Location = new Point(109, 169);
+            label1.Name = "label1";
+            label1.Size = new Size(269, 23);
+            label1.TabIndex = 7;
+            label1.Text = "G A R D E N  L I B R A R Y";
+            label1.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Lucida Handwriting", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.ForeColor = SystemColors.ActiveCaptionText;
+            label2.Location = new Point(190, 192);
+            label2.Name = "label2";
+            label2.Size = new Size(90, 21);
+            label2.TabIndex = 8;
+            label2.Text = "Register";
+            label2.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // groupBox1
+            // 
+            groupBox1.Controls.Add(label2);
+            groupBox1.Controls.Add(btnFrmBook);
+            groupBox1.Controls.Add(label1);
+            groupBox1.Controls.Add(btnFrmComputer);
+            groupBox1.Controls.Add(btnExit);
+            groupBox1.Controls.Add(R);
+            groupBox1.Controls.Add(pictureBox1);
+            groupBox1.Location = new Point(39, 12);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(491, 361);
+            groupBox1.TabIndex = 9;
+            groupBox1.TabStop = false;
             // 
             // Menu
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.DarkSeaGreen;
-            ClientSize = new Size(598, 321);
-            Controls.Add(btnExit);
-            Controls.Add(R);
-            Controls.Add(btnFrmComputer);
-            Controls.Add(btnFrmBook);
-            Controls.Add(pictureBox1);
+            ClientSize = new Size(586, 395);
+            Controls.Add(groupBox1);
             Name = "Menu";
             Text = "Menu";
+            Load += Menu_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            groupBox1.ResumeLayout(false);
+            groupBox1.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
@@ -127,5 +167,8 @@
         private Label R;
         private FontAwesome.Sharp.IconButton btnExit;
         private PictureBox pictureBox1;
+        private Label label1;
+        private Label label2;
+        private GroupBox groupBox1;
     }
 }

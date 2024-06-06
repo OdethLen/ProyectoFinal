@@ -2,6 +2,11 @@ using DocumentFormat.OpenXml.Packaging;
 using DocumentFormat.OpenXml;
 using DocumentFormat.OpenXml.Spreadsheet;
 using System.Runtime.CompilerServices;
+using System.Security.Policy;
+using DocumentFormat.OpenXml.Wordprocessing;
+using Run = DocumentFormat.OpenXml.Wordprocessing.Run;
+using Text = DocumentFormat.OpenXml.Wordprocessing.Text;
+using View = System.Windows.Forms.View;
 
 namespace ProyectoFinal
 {
@@ -218,7 +223,54 @@ namespace ProyectoFinal
 
         private void btnWord_Click(object sender, EventArgs e)
         {
+            if (lstvBookregister.Items.Count == 0)
+            {
+                MessageBox.Show("There is no data to export.", "No data");
+                return;
+            }
 
+            SaveFileDialog dialog = new SaveFileDialog();
+            dialog.Filter = "Word Documents|*.docx";
+            dialog.Title = "Save the Word File";
+
+            if (dialog.ShowDialog() != DialogResult.OK)
+            {
+                return;
+            }
+
+            string FilePath = dialog.FileName;
+            using (WordprocessingDocument wordDocument = WordprocessingDocument.Create(FilePath, WordprocessingDocumentType.Document))
+            {
+
+                MainDocumentPart mainPart = wordDocument.AddMainDocumentPart();
+                mainPart.Document = new Document();
+                Body body = mainPart.Document.AppendChild(new Body());
+
+
+                foreach (ListViewItem item in lstvBookregister.Items)
+                {
+                    string name = item.SubItems[0].Text;
+                    string lastName = item.SubItems[1].Text;
+                    string title = item.SubItems[2].Text;
+                    string author = item.SubItems[3].Text;
+                    string publisher = item.SubItems[4].Text;
+                    string date = item.SubItems[5].Text;
+                    string enddate = item.SubItems[6].Text;
+
+                    // Crear un nuevo párrafo para cada conjunto de datos
+                    Paragraph paragraph = new Paragraph();
+                    Run run = new Run();
+                    run.AppendChild(new Text(" Name: " + name + lastName + " Title: " + title + " Author: " + author + " Publisher: " + publisher + " Date :" + date +" End date: "+enddate));
+                    paragraph.Append(run);
+
+
+                    body.Append(paragraph);
+                }
+
+
+            }
+
+            MessageBox.Show("Word file exported successfully :D");
         }
 
         private void btnExcel_Click(object sender, EventArgs e)
