@@ -334,6 +334,9 @@ namespace ProyectoFinal
             MessageBox.Show("Excel file saved successfully  :D");
         }
 
+
+
+
         private void btnDelete_Click(object sender, EventArgs e)
         {
             if (lstvBookregister.SelectedItems.Count > 0)
@@ -348,9 +351,9 @@ namespace ProyectoFinal
                 MessageBox.Show("Please select an item to delete.");
 
             }
-           
-
             
         }
+
+
     }
 }

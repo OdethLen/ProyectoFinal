@@ -354,40 +354,26 @@ namespace ProyectoFinal
 
             string filePath = dialog.FileName;
 
-         
-            XmlDocument xmlDoc = new XmlDocument();
+            XmlWriterSettings settings = new XmlWriterSettings();
+            settings.Indent = true; 
 
-            // Crear el elemento raíz
-            XmlElement rootElement = xmlDoc.CreateElement("Tickets");
-            xmlDoc.AppendChild(rootElement);
-
-
-            foreach (ListViewItem item in lstvComputerregsiter.Items)
+            using (XmlWriter writer = XmlWriter.Create(filePath, settings))
             {
-                XmlElement ticketElement = xmlDoc.CreateElement("Ticket");
+                writer.WriteStartElement("Tickets");
 
-                string defaultLibraryName = "GREEN LIBRARY";
-                XmlElement libraryNameElement = xmlDoc.CreateElement("LibraryName");
-                libraryNameElement.InnerText = defaultLibraryName; 
-                ticketElement.AppendChild(libraryNameElement);
-
-
-                XmlElement numberOfCopiesElement = xmlDoc.CreateElement("NumberOfCopies");
-                numberOfCopiesElement.InnerText = item.SubItems[3].Text;
-                ticketElement.AppendChild(numberOfCopiesElement);
-
-                XmlElement totalElement = xmlDoc.CreateElement("Total");
-                totalElement.InnerText = item.SubItems[5].Text;
-                ticketElement.AppendChild(totalElement);
-
-                rootElement.AppendChild(ticketElement);
+                foreach (ListViewItem item in lstvComputerregsiter.Items)
+                {
+                    writer.WriteStartElement("Ticket");
+                    writer.WriteElementString("LibraryName", "GREEN LIBRARY");
+                    writer.WriteElementString("NumberOfCopies", item.SubItems[3].Text);
+                    writer.WriteElementString("Total", item.SubItems[5].Text);
+                    writer.WriteEndElement();
+                }
+                writer.WriteEndElement();
             }
 
-            // Guardar el documento XML en el archivo
-            xmlDoc.Save(filePath);
-
             MessageBox.Show("XML file exported successfully :D");
-
+            
 
         }
 
