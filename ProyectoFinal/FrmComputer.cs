@@ -24,6 +24,7 @@ using Text = DocumentFormat.OpenXml.Wordprocessing.Text;
 using DocumentFormat.OpenXml.Spreadsheet;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
 using System.Xml;
+using System.Diagnostics;
 
 namespace ProyectoFinal
 {
@@ -85,13 +86,7 @@ namespace ProyectoFinal
             ErrorProvider.SetError(txtPrintNumber, "");
 
 
-
-            //if (dtpDate.Value != DateTime.Now )
-            //{
-            //    MessageBox.Show("Invalid date, date cannot be different from the current date. ");
-            //    dtpDate.Value = DateTime.Now;
-            //    return;
-            //}
+            
 
             try
             {
@@ -241,16 +236,16 @@ namespace ProyectoFinal
             }
 
             string filePath = dialog.FileName;
-            string[] lines = File.ReadAllLines(filePath);
+            string[] lines = File.ReadAllLines(filePath);// Se lee el contenido del archivo y se almacena en un array de strings, donde cada elemento es una línea del archivo
+
             lstvComputerregsiter.Items.Clear();
 
             foreach (string line in lines)
             {
-                string[] elements = line.Split(','); //Divide los elementos de la linea con el uso de la coma para notar la diferencia 
-
+                string[] elements = line.Split(',');  // Se divide la línea en elementos utilizando la coma como separador
 
                 ListViewItem item = new ListViewItem(elements[0]);
-                for (int i = 1; i < elements.Length; i++)
+                for (int i = 1; i < elements.Length; i++) //Empieza por el uno por que el primer renglon corresponde a los encabezados  
                 {
                     item.SubItems.Add(elements[i]);
                 }

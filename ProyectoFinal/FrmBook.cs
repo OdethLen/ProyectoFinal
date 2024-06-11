@@ -12,13 +12,11 @@ namespace ProyectoFinal
 {
     public partial class FrmBook : Form
     {
-        Book[,] bookarray;
-        int BookCount;
         public FrmBook()
         {
             InitializeComponent();
-            bookarray = new Book[5, 5];
-            BookCount = 0;
+            //bookarray = new Book[5, 5];
+            //BookCount = 0;
             lstvBookregister.View = View.Details;
             lstvBookregister.Columns.Add("Name", 100);
             lstvBookregister.Columns.Add("Last Name", 100);
@@ -97,17 +95,7 @@ namespace ProyectoFinal
             book.Date = Convert.ToDateTime(dtpDate.Text);
             book.Enddate = Convert.ToDateTime(dtpEndDate.Text);
 
-            bookarray[BookCount, 0] = book; // BookCount representa el índice de la fila y 0 representa el índice de la columna
-
-
-            BookCount++;
-            if (BookCount == bookarray.GetLength(0))
-            {
-                MessageBox.Show("Full Arrangement");
-            }
-
-
-            // Después de asignar el objeto Book a la matriz, puedes agregar los detalles del libro a lstvBookregister
+          
             ListViewItem item = new ListViewItem(book.Name);
             item.SubItems.Add(book.Lastname);
             item.SubItems.Add(book.Title);
